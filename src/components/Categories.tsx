@@ -26,17 +26,22 @@ export default function Categories() {
         </p>
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
-        {categories.map((cat) => (
-          <a
-            key={cat.name}
-            href={`/explore?category=${cat.name}`}
-            className="flex flex-col items-center justify-center gap-2 bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-md hover:border-primary/30 transition"
-          >
-            <cat.icon className="text-primary" size={28} />
-            <span className="font-medium text-sm text-neutral">{cat.name}</span>
-            <span className="text-xs text-gray-400">{cat.count}</span>
-          </a>
-        ))}
+        {categories.map((cat) => {
+          const Icon = cat.icon;
+          return (
+            <a
+              key={cat.name}
+              href={`/explore?category=${cat.name}`}
+              className="flex flex-col items-center justify-center gap-2 bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-md hover:border-primary/30 transition"
+            >
+              <Icon className="text-primary" size={28} />
+              <span className="font-medium text-sm text-neutral">
+                {cat.name}
+              </span>
+              <span className="text-xs text-gray-400">{cat.count}</span>
+            </a>
+          );
+        })}
       </div>
     </section>
   );
